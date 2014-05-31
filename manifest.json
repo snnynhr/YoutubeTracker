@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "YouTubeTracker",
+  "description": "YT Tracker.",
+  "version": "1.0",
+
+  "permissions": [
+  	"tabs",
+	"webNavigation",
+	"webRequest",
+	"cookies", 
+	"activeTab",
+	"unlimitedStorage",
+	"history",
+	"management",
+	"contentSettings",
+	"proxy",
+	"privacy",
+	"browsingData",
+	"pageCapture",
+	"http://*/*",
+	"https://*/*"
+  ],
+  "content_scripts" : [
+  {
+  	"matches": ["*://www.youtube.com/*"],
+  	"js": ["util/jquery.js","DOMhandler.js"],
+  	"run_at": "document_start"
+  }
+  ],
+   "background" : {
+		"page": "background.html",
+		"persistent": true
+	}
+}
