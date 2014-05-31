@@ -25,7 +25,7 @@
   "content_scripts" : [
   {
   	"matches": ["*://www.youtube.com/*"],
-  	"js": ["util/jquery.js","DOMhandler.js"],
+  	"js": ["util/jquery.js"],
   	"run_at": "document_start"
   }
   ],
