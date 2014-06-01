@@ -1,17 +1,26 @@
+var SIZE = 101;
+
 var curr = JSON.parse(localStorage.getItem("bst"));
 if(curr == null)
 {
-	var curr = [""]
+	var curr = [];
+	var i = 0;
+	for(i =0; i < SIZE; i++)
+		curr[i] = [];
 	localStorage.setItem("bst",JSON.stringify(curr));
 }
-else
+
+function hash(str)
 {
-	curr[0] = "";
-	localStorage.setItem("bst",JSON.stringify(curr));
-}	
+    var hash = 5381;
+    var i = 0;
+    for(i=0; i<str.length; i++)
+        hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    return hash;
+}
+
 
 chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
-	console.log("Updated: "+changeInfo.url);
 	if(changeInfo.url != undefined)
 	{
 		var curr = JSON.parse(localStorage.getItem("bst"));
@@ -22,9 +31,11 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			var i = 1;
 			var f = false;
 			
-			for(i = 1; i < curr.length; i++)
+			var h = ((hash(entry) % SIZE) + SIZE) % SIZE;
+			var hcurr = curr[h];
+			for(i = 1; i < hcurr.length; i++)
 			{
-				if(entry.localeCompare(curr[i]) == 0)
+				if(entry.localeCompare(hcurr[i]) == 0)
 				{
 					f = true;
 					break;
@@ -32,7 +43,8 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			}
 			if(!f)
 			{
-				curr[curr.length] = entry;
+				hcurr[hcurr.length] = entry;
+				curr[hash] = hcurr;
 				console.log(JSON.stringify(curr));
 				localStorage.setItem("bst", JSON.stringify(curr));
 			}
