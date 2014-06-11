@@ -3,6 +3,9 @@ var CUTOFF = 20;
 var curr = JSON.parse(localStorage.getItem("bst"));
 var num = localStorage.getItem("num");
 
+/*
+ * Init extensions settings after cold upgrade
+ */
 function initSystem()
 {
 	if(curr == null)
@@ -15,9 +18,33 @@ function initSystem()
 		initNum();
 	}
 
+	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, function(e)
 	{
-		window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onWriteInitFs, errorHandler);		
+		msg = '';
+		switch (e.code) {
+		  case FileError.QUOTA_EXCEEDED_ERR:
+		    msg = 'QUOTA_EXCEEDED_ERR';
+		    break;
+		  case FileError.NOT_FOUND_ERR:
+		    window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onWriteInitFs, errorHandler);
+		    break;
+		  case FileError.SECURITY_ERR:
+		    msg = 'SECURITY_ERR';
+		    break;
+		  case FileError.INVALID_MODIFICATION_ERR:
+		    msg = 'INVALID_MODIFICATION_ERR';
+		    break;
+		  case FileError.INVALID_STATE_ERR:
+		    msg = 'INVALID_STATE_ERR';
+		    break;
+		  default:
+		    msg = 'Unknown Error';
+		    break;
+		};
+		if(msg != '')
+			console.log('Error: ' + msg);
+				
 	});
 }
 
@@ -30,9 +57,9 @@ function initBst()
 {
 	var curr = [];
 	var i = 0;
-	for(i =0; i < SIZE; i++)
+	for(i = 0; i < SIZE; i++)
 		curr[i] = [];
-	localStorage.setItem("bst",JSON.stringify(curr));
+	localStorage.setItem("bst", JSON.stringify(curr));
 }
 
 /* 
@@ -40,7 +67,7 @@ function initBst()
  */ 
 function initNum()
 {
-	localStorage.setItem("num",0);
+	localStorage.setItem("num", 0);
 }
 
 /* 
@@ -50,7 +77,7 @@ function hash(str)
 {
     var hash = 5381;
     var i = 0;
-    for(i=0; i<str.length; i++)
+    for(i = 0; i < str.length; i++)
         hash = ((hash << 5) + hash) + str.charCodeAt(i);
     return hash;
 }
@@ -127,6 +154,7 @@ function onAppendInitFs(fs) {
 		    {
 				fileWriter.seek(fileWriter.length); // Start write position at EOF.
 
+				/* Get data */
 				var curr = JSON.parse(localStorage.getItem("bst"));
 
 				var data = "";
@@ -138,6 +166,7 @@ function onAppendInitFs(fs) {
 					}
 				}
 
+				/* Reset localstorage */
 				initBst();
 				initNum();
 
