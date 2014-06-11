@@ -1,7 +1,32 @@
 var SIZE = 101;
-
+var CUTOFF = 20;
 var curr = JSON.parse(localStorage.getItem("bst"));
-if(curr == null)
+var num = localStorage.getItem("num");
+
+function initSystem()
+{
+	if(curr == null)
+	{
+		initBst();
+	}
+
+	if(num == null)
+	{
+		initNum();
+	}
+
+	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, function(e)
+	{
+		window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onWriteInitFs, errorHandler);		
+	});
+}
+
+initSystem()
+
+/*
+ * Init hashtable
+ */
+function initBst()
 {
 	var curr = [];
 	var i = 0;
@@ -10,6 +35,17 @@ if(curr == null)
 	localStorage.setItem("bst",JSON.stringify(curr));
 }
 
+/* 
+ * Init counter
+ */ 
+function initNum()
+{
+	localStorage.setItem("num",0);
+}
+
+/* 
+ * djb2 hash function
+ */
 function hash(str)
 {
     var hash = 5381;
@@ -19,11 +55,107 @@ function hash(str)
     return hash;
 }
 
+/*
+ * fileSystem error Handler
+ */ 
+function errorHandler(e) {
+  var msg = '';
+
+  switch (e.code) {
+    case FileError.QUOTA_EXCEEDED_ERR:
+      msg = 'QUOTA_EXCEEDED_ERR';
+      break;
+    case FileError.NOT_FOUND_ERR:
+      msg = 'NOT_FOUND_ERR';
+      break;
+    case FileError.SECURITY_ERR:
+      msg = 'SECURITY_ERR';
+      break;
+    case FileError.INVALID_MODIFICATION_ERR:
+      msg = 'INVALID_MODIFICATION_ERR';
+      break;
+    case FileError.INVALID_STATE_ERR:
+      msg = 'INVALID_STATE_ERR';
+      break;
+    default:
+      msg = 'Unknown Error';
+      break;
+  };
+
+  console.log('Error: ' + msg);
+}
+
+/* 
+ * Create empty resource file
+ */
+function onWriteInitFs(fs) {
+
+  fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
+
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function(fileWriter) {
+
+      fileWriter.onwriteend = function(e) {
+        console.log('Write completed.');
+      };
+
+      fileWriter.onerror = function(e) {
+        console.log('Write failed: ' + e.toString());
+      };
+
+      // Create a new Blob and write it to log.txt.
+      var blob = new Blob([''], {type: 'text/plain'});
+
+      fileWriter.write(blob);
+
+    }, errorHandler);
+
+  }, errorHandler);
+
+}
+
+/*
+ * Append to existing resource file
+ */
+function onAppendInitFs(fs) {
+	if(parseInt(localStorage.getItem("num")) > CUTOFF)
+	{
+	  	fs.root.getFile('yttrack.txt', {create: false}, function(fileEntry) {
+
+	    	// Create a FileWriter object for our FileEntry (log.txt).
+		    fileEntry.createWriter(function(fileWriter) 
+		    {
+				fileWriter.seek(fileWriter.length); // Start write position at EOF.
+
+				var curr = JSON.parse(localStorage.getItem("bst"));
+
+				var data = "";
+				for (i=0; i<curr.length; i++)
+				{
+					for(j=0; j<curr[i].length; j++)
+					{
+						data += curr[i][j] +"\n";
+					}
+				}
+
+				initBst();
+				initNum();
+
+				// Create a new Blob and write it to log.txt.
+				var blob = new Blob([data], {type: 'text/plain'});
+
+				fileWriter.write(blob);
+		    }, errorHandler);
+
+	  	}, errorHandler);
+  	}
+}
 
 chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 	if(changeInfo.url != undefined)
 	{
 		var curr = JSON.parse(localStorage.getItem("bst"));
+		var num = parseInt(localStorage.getItem("num"));
 		var n = changeInfo.url.search("www.youtube.com/watch");
 		if(n >= 0)
 		{
@@ -45,8 +177,13 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			{
 				hcurr[hcurr.length] = entry;
 				curr[hash] = hcurr;
-				console.log(JSON.stringify(curr));
+				localStorage.setItem("num", num + 1);
 				localStorage.setItem("bst", JSON.stringify(curr));
+
+				if(num > CUTOFF)
+				{
+					window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandler);
+				}
 			}
 		}
 	}
