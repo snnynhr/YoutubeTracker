@@ -3,8 +3,9 @@ var CUTOFF = 5;
 var curr = JSON.parse(localStorage.getItem("bst"));
 var num = localStorage.getItem("num");
 
-var currUrl;
-var added = false;
+var currInd = -1;
+var oldtitle = "";
+var first; //Fix first undefined problem - NYI
 
 /*
  * Init extensions settings after cold upgrade
@@ -21,12 +22,15 @@ function initSystem()
 		initNum();
 	}
 
+	currInd = -1;
+	oldtitle = "";
+	first = true;
+
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
 }
 function errorHandlerInit(e)
 {
-	console.log("Write EH entered");
 	msg = '';
 	switch (e.code) {
 	  case FileError.QUOTA_EXCEEDED_ERR:
@@ -120,7 +124,6 @@ function errorHandler(e) {
  * Create empty resource file
  */
 function onWriteInitFs(fs) {
-	console.log('entered');
   	fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
 
 	    // Create a FileWriter object for our FileEntry (log.txt).
@@ -140,14 +143,12 @@ function onWriteInitFs(fs) {
 		    fileWriter.write(blob);
     	}, errorHandler);
   	}, errorHandler);
-  	console.log('exitted');
 }
 
 /*
  * Append to existing resource file
  */
 function onAppendInitFs(fs) {
-	console.log('entered append');
   	fs.root.getFile('yttrack.txt', {create: false}, function(fileEntry) {
 
     	// Create a FileWriter object for our FileEntry (log.txt).
@@ -163,25 +164,26 @@ function onAppendInitFs(fs) {
 			{
 				for(j=0; j<curr[i].length; j++)
 				{
-					data += curr[i][j] +"\n";
+					data += curr[i][j][0] +": " + curr[i][j][1] + "\n";
 				}
 			}
-
+			console.log("CALLED");
 			/* Reset localstorage */
 			initBst();
 			initNum();
-
+			currInd = -1;
+			oldtitle = "";
+			first = true;
 			// Create a new Blob and write it to log.txt.
 			var blob = new Blob([data], {type: 'text/plain'});
 
 			fileWriter.write(blob);
 	    }, errorHandler);
 	}, errorHandlerInit);
-  	console.log('exit append');
 }
 
 chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
-	console.log(changeInfo.url +"\ntitle: " + tab.title + "\nurl: " + tab.url + "\nstatus: " + tab.status + "\nhighl: "+tab.highlighted + "\nactive" + tab.active + "\n");
+	//console.log(changeInfo.url +"\ntitle: " + tab.title + "\nurl: " + tab.url + "\nstatus: " + tab.status + "\nhighl: "+tab.highlighted + "\nactive" + tab.active + "\n");
 	if(changeInfo.url != undefined)
 	{
 		var curr = JSON.parse(localStorage.getItem("bst"));
@@ -198,7 +200,7 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			var hcurr = curr[h];
 			for(i = 1; i < hcurr.length; i++)
 			{
-				if(entry.localeCompare(hcurr[i]) == 0)
+				if(entry.localeCompare(hcurr[i][0]) == 0)
 				{
 					f = true;
 					break;
@@ -206,8 +208,9 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			}
 			if(!f)
 			{
-				hcurr[hcurr.length] = entry;
+				hcurr[hcurr.length] = [entry];
 				curr[hash] = hcurr;
+				currInd = h;
 				localStorage.setItem("num", num + 1);
 				localStorage.setItem("bst", JSON.stringify(curr));
 
@@ -220,6 +223,15 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 	}
 	else
 	{
-
+		//console.log(tab.title);
+		if(currInd != -1 && tab.title != oldtitle) /* loosen pressure on localStorage pipes */
+		{
+			oldtitle = tab.title;
+			var curr = JSON.parse(localStorage.getItem("bst"));
+			c = curr[currInd];
+			c[c.length-1][1] = tab.title;
+			localStorage.setItem("bst", JSON.stringify(curr));
+			//console.log(c[c.length-1][0] + ", "+c[c.length-1][1]);
+		}
 	}
 });
