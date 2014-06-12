@@ -6,7 +6,7 @@ var num = localStorage.getItem("num");
 var currInd = -1;
 var oldtitle = "";
 var first; //Fix first undefined problem - NYI
-
+var valid = false;
 /*
  * Init extensions settings after cold upgrade
  */
@@ -25,6 +25,7 @@ function initSystem()
 	currInd = -1;
 	oldtitle = "";
 	first = true;
+	valid = false;
 
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
@@ -174,6 +175,7 @@ function onAppendInitFs(fs) {
 			currInd = -1;
 			oldtitle = "";
 			first = true;
+			valid = false;
 			// Create a new Blob and write it to log.txt.
 			var blob = new Blob([data], {type: 'text/plain'});
 
@@ -192,6 +194,7 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 		if(n >= 0)
 		{
 			//console.log(tab.title);
+			valid = true;
 			var entry = changeInfo.url.substring(n + 21);	
 			var i = 1;
 			var f = false;
@@ -220,11 +223,15 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 				}
 			}
 		}
+		else
+		{
+			valid = false;
+		}
 	}
 	else
 	{
 		//console.log(tab.title);
-		if(currInd != -1 && tab.title != oldtitle) /* loosen pressure on localStorage pipes */
+		if(valid && currInd != -1 && tab.title != oldtitle) /* loosen pressure on localStorage pipes */
 		{
 			oldtitle = tab.title;
 			var curr = JSON.parse(localStorage.getItem("bst"));
