@@ -82,14 +82,28 @@ function initNum()
 /* 
  * djb2 hash function
  */
-function hash(str)
+function djb2(str)
 {
-    var hash = 5381;
+	var hash = 5381;
     var i = 0;
     for(i = 0; i < str.length; i++)
         hash = ((hash << 5) + hash) + str.charCodeAt(i);
     return hash;
 }
+
+/*
+ * SHA-1 hash function
+ */
+function sha(str)
+{
+	x = new BigInteger(SHA1(str), 16);
+  	y = new BigInteger(SIZE.toString(16), 16);
+  	z = x.mod(y);
+	console.log(SHA1(str));
+	console.log(parseInt(z.toString(16),16));
+	return parseInt(z.toString(16),16);
+}
+
 
 /*
  * fileSystem error Handler
@@ -199,7 +213,7 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			var i = 1;
 			var f = false;
 			
-			var h = ((hash(entry) % SIZE) + SIZE) % SIZE;
+			var h = ((sha(entry) % SIZE) + SIZE) % SIZE;
 			var hcurr = curr[h];
 			for(i = 1; i < hcurr.length; i++)
 			{
