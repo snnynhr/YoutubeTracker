@@ -3,7 +3,7 @@
 
   "name": "YouTubeTracker",
   "description": "YT Tracker.",
-  "version": "1.2.2.0",
+  "version": "1.2.4.0",
 
   "permissions": [
   "tabs",
@@ -23,6 +23,7 @@
 		"page": "background.html",
 		"persistent": true
    },
+  "options_page": "options.html",
   "icons": { "16": "icon/icon16.png",
            "48": "icon/icon48.png",
           "128": "icon/icon128.png" }

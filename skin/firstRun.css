@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'CreteRound';
+  font-style: normal;
+  src: url(fonts/CreteRound-Regular.otf);
+  src: local ('Ø'),
+  /*local ('Ø') forces using no local font called CreteRound*/
+  url(fonts/CreteRound-Regular.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'CreteRound';
+  font-style: italic;
+  src: url(fonts/CreteRound-Italic.otf);
+  src: local ('Ø'),
+  /*local ('Ø') forces using no local font called CreteRound*/
+  url(fonts/CreteRound-Italic.otf) format('otf');
+}
+
+body
+{
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 140%;
+  color: #7f776b;
+  background-color: #f8f6f2;
+  background-image: url(background-main.png);
+  margin: 0;
+  padding: 0;
+}
+
+a, a:link, a:visited
+{
+  color: #5a84b3;
+  text-decoration: underline;
+}
+
+a:hover
+{
+  text-decoration: none;
+}
+
+button
+{
+  cursor: pointer;
+}
+
+ul
+{
+  margin: 0;
+  padding: 0;
+}
+
+li
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+header
+{
+  background-image: url(background.png);
+  background-repeat: repeat-x;
+  width: 100%;
+  padding: 40px 0 0 0;
+}
+
+header h1
+{
+  font-size: 24px;
+  font-weight: normal;
+  color: #57ab5b;
+  text-align: center;
+  margin: 21px auto;
+  padding: 16px 0 14px 0;
+  border: 1px #57ab5b;
+  border-style: dashed none;
+  /* border parallel fix - 957px is the value
+   * closest to 960px(page width) which makes
+   * the dashed border parallel
+   */
+  max-width: 957px;
+}
+
+h1,h2,h3
+{
+ font-family: CreteRound, Helvetica, Arial, sans-serif;
+}
+
+h2
+{
+  font-size: 26px;
+  font-weight: lighter;
+  color: #968d81;
+  line-height: 28px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h3
+{
+  font-size: 22px;
+  color: #7F776B;
+  font-weight: normal;
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 24px;
+}
+
+h4
+{
+  font-size: 15px;
+  color: #7f776b;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+section
+{
+  margin: 0 auto;
+  margin-bottom: 30px;
+  max-width: 760px;
+  background-image: url(background.png);
+  padding: 40px 100px;
+}
+
+section > p
+{
+  margin: 15px 0 0 0;
+}
+
+#logo
+{
+  margin: 0 auto;
+  height: 100px;
+  width: 99px;
+  display: block;
+  background-image: url(abp-icon-big.png);
+  background-repeat: no-repeat;
+}
+
+footer
+{
+  margin: 0 auto 30px;
+  max-width: 960px;
+  text-align: center;
+}

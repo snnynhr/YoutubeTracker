@@ -182,7 +182,6 @@ function onAppendInitFs(fs) {
 					data += curr[i][j][0] +": " + curr[i][j][1] + "\n";
 				}
 			}
-			console.log("CALLED");
 			/* Reset localstorage */
 			initBst();
 			initNum();
