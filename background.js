@@ -1,7 +1,9 @@
 var SIZE = 101;
-var CUTOFF = 5;
+var CUTOFF = 20;
 var curr = JSON.parse(localStorage.getItem("bst"));
 var num = localStorage.getItem("num");
+var dss = localStorage.getItem("dss");
+var min = localStorage.getItem("min");
 
 var currInd = -1;
 var oldtitle = "";
@@ -21,7 +23,22 @@ function initSystem()
 	{
 		initNum();
 	}
-
+	if(dss != null)
+	{
+		dss = parseInt(dss);
+	}
+	else
+	{
+		localStorage.setItem("dss",SIZE);
+	}
+	if(min != null)
+	{
+		min = parseInt(min);
+	}
+	else
+	{
+		localStorage.setItem("min",CUTOFF);
+	}
 	currInd = -1;
 	oldtitle = "";
 	first = true;
@@ -64,9 +81,10 @@ initSystem()
  */
 function initBst()
 {
+	var LENGTH = parseInt(localStorage.getItem("dss"));
 	var curr = [];
 	var i = 0;
-	for(i = 0; i < SIZE; i++)
+	for(i = 0; i < LENGTH; i++)
 		curr[i] = [];
 	localStorage.setItem("bst", JSON.stringify(curr));
 }
@@ -96,11 +114,10 @@ function djb2(str)
  */
 function sha(str)
 {
+	var LENGTH = parseInt(localStorage.getItem("dss"));
 	x = new BigInteger(SHA1(str), 16);
-  	y = new BigInteger(SIZE.toString(16), 16);
+  	y = new BigInteger(LENGTH.toString(16), 16);
   	z = x.mod(y);
-	console.log(SHA1(str));
-	console.log(parseInt(z.toString(16),16));
 	return parseInt(z.toString(16),16);
 }
 
@@ -182,7 +199,7 @@ function onAppendInitFs(fs) {
 					data += curr[i][j][0] +": " + curr[i][j][1] + "\n";
 				}
 			}
-			/* Reset localstorage */
+			/* Reset localStorage */
 			initBst();
 			initNum();
 			currInd = -1;
@@ -212,7 +229,8 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			var i = 1;
 			var f = false;
 			
-			var h = ((sha(entry) % SIZE) + SIZE) % SIZE;
+			var LENGTH = parseInt(localStorage.getItem("dss"));
+			var h = ((sha(entry) % LENGTH) + LENGTH) % LENGTH;
 			var hcurr = curr[h];
 			for(i = 1; i < hcurr.length; i++)
 			{
@@ -225,12 +243,12 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			if(!f)
 			{
 				hcurr[hcurr.length] = [entry];
-				curr[hash] = hcurr;
+				curr[h] = hcurr;
 				currInd = h;
 				localStorage.setItem("num", num + 1);
 				localStorage.setItem("bst", JSON.stringify(curr));
-
-				if(num > CUTOFF)
+				var CUT = localStorage.getItem("min");
+				if(num > CUT)
 				{
 					window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandler);
 				}
@@ -255,3 +273,15 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 		}
 	}
 });
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.greeting == "updated")
+    {
+      initSystem();
+      sendResponse({farewell: "goodbye"});
+    }
+  });
