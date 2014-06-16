@@ -4,7 +4,11 @@
   "name": "YouTubeTracker",
   "description": "YT Tracker.",
   "version": "1.2.4.0",
-
+  "browser_action": {
+      "default_icon": "icon/icon19.png",
+      "default_popup": "popup.html",
+      "default_title": "YTTrack"
+   },
   "permissions": [
   "tabs",
 	"activeTab",
