@@ -300,4 +300,4 @@ chrome.runtime.onMessage.addListener(
       initSystem();
       sendResponse({farewell: "goodbye"});
     }
-  });
+});
