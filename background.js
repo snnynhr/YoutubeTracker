@@ -1,10 +1,11 @@
 var SIZE = 101;
 var CUTOFF = 20;
+var QUEUE_SIZE = 0;
 var curr = JSON.parse(localStorage.getItem("bst"));
 var num = localStorage.getItem("num");
 var dss = localStorage.getItem("dss");
 var min = localStorage.getItem("min");
-
+var q = localStorage.getItem("queue");
 var currInd = -1;
 var oldtitle = "";
 var first; //Fix first undefined problem - NYI
@@ -22,6 +23,10 @@ function initSystem()
 	if(num == null)
 	{
 		initNum();
+	}
+	if(q == null)
+	{
+		initQueue();
 	}
 	if(dss != null)
 	{
@@ -43,7 +48,7 @@ function initSystem()
 	oldtitle = "";
 	first = true;
 	valid = false;
-
+	q = [];
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
 }
@@ -95,6 +100,14 @@ function initBst()
 function initNum()
 {
 	localStorage.setItem("num", 0);
+}
+
+/* 
+ * Init queue
+ */ 
+function initQueue()
+{
+	localStorage.setItem("queue", JSON.stringify(["","","","",""]));
 }
 
 /* 
@@ -202,6 +215,7 @@ function onAppendInitFs(fs) {
 			/* Reset localStorage */
 			initBst();
 			initNum();
+			initQueue();
 			currInd = -1;
 			oldtitle = "";
 			first = true;
@@ -243,6 +257,10 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			if(!f)
 			{
 				hcurr[hcurr.length] = [entry];
+				var q = JSON.parse(localStorage.getItem("queue"));
+				q.shift();
+				q.push(h+" "+hcurr.length);
+				localStorage.setItem("queue",JSON.stringify(q));
 				curr[h] = hcurr;
 				currInd = h;
 				localStorage.setItem("num", num + 1);
@@ -261,7 +279,6 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 	}
 	else
 	{
-		//console.log(tab.title);
 		if(valid && currInd != -1 && tab.title != oldtitle) /* loosen pressure on localStorage pipes */
 		{
 			oldtitle = tab.title;
@@ -269,7 +286,6 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			c = curr[currInd];
 			c[c.length-1][1] = tab.title;
 			localStorage.setItem("bst", JSON.stringify(curr));
-			//console.log(c[c.length-1][0] + ", "+c[c.length-1][1]);
 		}
 	}
 });
