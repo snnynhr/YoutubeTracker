@@ -8,6 +8,7 @@ var min = localStorage.getItem("min");
 var q = localStorage.getItem("queue");
 var currInd = -1;
 var oldtitle = "";
+var seenFirst = false;
 var first; //Fix first undefined problem - NYI
 var valid = false;
 
@@ -49,6 +50,7 @@ function initSystem()
 	oldtitle = "";
 	first = true;
 	valid = false;
+	seenFirst = false;
 	q = [];
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
@@ -221,6 +223,7 @@ function onAppendInitFs(fs) {
 			oldtitle = "";
 			first = true;
 			valid = false;
+			seenFirst = false;
 			// Create a new Blob and write it to log.txt.
 			var blob = new Blob([data], {type: 'text/plain'});
 
@@ -228,64 +231,72 @@ function onAppendInitFs(fs) {
 	    }, errorHandler);
 	}, errorHandlerInit);
 }
-
-chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
-	//console.log(changeInfo.url +"\ntitle: " + tab.title + "\nurl: " + tab.url + "\nstatus: " + tab.status + "\nhighl: "+tab.highlighted + "\nactive" + tab.active + "\n");
-	if(changeInfo.url != undefined)
+function update(url)
+{
+	var curr = JSON.parse(localStorage.getItem("bst"));
+	var num = parseInt(localStorage.getItem("num"));
+	var n = url.search("www.youtube.com/watch");
+	if(n >= 0)
 	{
-		var curr = JSON.parse(localStorage.getItem("bst"));
-		var num = parseInt(localStorage.getItem("num"));
-		var n = changeInfo.url.search("www.youtube.com/watch");
-		if(n >= 0)
+		//console.log(tab.title);
+		valid = true;
+		seenFirst = true;
+		var entry = url.substring(n + 21);	
+		var i = 1;
+		var f = false;
+		
+		var LENGTH = parseInt(localStorage.getItem("dss"));
+		var h = ((sha(entry) % LENGTH) + LENGTH) % LENGTH;
+		var hcurr = curr[h];
+		for(i = 1; i < hcurr.length; i++)
 		{
-			//console.log(tab.title);
-			valid = true;
-			var entry = changeInfo.url.substring(n + 21);	
-			var i = 1;
-			var f = false;
-			
-			var LENGTH = parseInt(localStorage.getItem("dss"));
-			var h = ((sha(entry) % LENGTH) + LENGTH) % LENGTH;
-			var hcurr = curr[h];
-			for(i = 1; i < hcurr.length; i++)
+			if(entry.localeCompare(hcurr[i][0]) == 0)
 			{
-				if(entry.localeCompare(hcurr[i][0]) == 0)
-				{
-					f = true;
-					break;
-				}
-			}
-			if(!f)
-			{
-				hcurr[hcurr.length] = [entry];
-				var q = JSON.parse(localStorage.getItem("queue"));
-				q.shift();
-				q.push(h+" "+hcurr.length);
-				localStorage.setItem("queue",JSON.stringify(q));
-				curr[h] = hcurr;
-				currInd = h;
-				localStorage.setItem("num", num + 1);
-				localStorage.setItem("bst", JSON.stringify(curr));
-				var CUT = localStorage.getItem("min");
-				if(num > CUT)
-				{
-					window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandler);
-				}
+				f = true;
+				break;
 			}
 		}
-		else
+		if(!f)
 		{
-			valid = false;
+			hcurr[hcurr.length] = [entry];
+			var q = JSON.parse(localStorage.getItem("queue"));
+			q.shift();
+			q.push(h+" "+hcurr.length);
+			localStorage.setItem("queue",JSON.stringify(q));
+			curr[h] = hcurr;
+			currInd = h;
+			localStorage.setItem("num", num + 1);
+			localStorage.setItem("bst", JSON.stringify(curr));
+			var CUT = localStorage.getItem("min");
+			if(num > CUT)
+			{
+				window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandler);
+			}
 		}
 	}
 	else
 	{
-		if(valid && currInd != -1 && tab.title != oldtitle) /* loosen pressure on localStorage pipes */
+		valid = false;
+	}
+}
+chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
+	//console.log(changeInfo.url +"\ntitle: " + tab.title + "\nurl: " + tab.url + "\nstatus: " + tab.status + "\nhighl: "+tab.highlighted + "\nactive" + tab.active + "\n");
+	if(changeInfo.url != undefined)
+	{
+		update(changeInfo.url);
+	}
+	else
+	{
+		if(valid && currInd != -1 && tab.title != oldtitle && tab.title.search("YouTube")>=0) /* loosen pressure on localStorage pipes */
 		{
-			var end = " - YouTube ";
+			if(!seenFirst)
+			{
+				update(tab.url);
+			}
+			var end = " - YouTube";
 			var title = tab.title;
-			if(title.substring(title.length-end.length+1).search("YouTube") >=0)
-				title = title.substring(0,title.length-end.length+1);
+			if(title.substring(title.length-end.length).search("YouTube") >=0)
+				title = title.substring(0,title.length-end.length);
 			oldtitle = title;
 			var curr = JSON.parse(localStorage.getItem("bst"));
 			c = curr[currInd];
