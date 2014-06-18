@@ -10,6 +10,7 @@ var currInd = -1;
 var oldtitle = "";
 var first; //Fix first undefined problem - NYI
 var valid = false;
+
 /*
  * Init extensions settings after cold upgrade
  */
@@ -281,10 +282,14 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 	{
 		if(valid && currInd != -1 && tab.title != oldtitle) /* loosen pressure on localStorage pipes */
 		{
-			oldtitle = tab.title;
+			var end = " - YouTube ";
+			var title = tab.title;
+			if(title.substring(title.length-end.length+1).search("YouTube") >=0)
+				title = title.substring(0,title.length-end.length+1);
+			oldtitle = title;
 			var curr = JSON.parse(localStorage.getItem("bst"));
 			c = curr[currInd];
-			c[c.length-1][1] = tab.title;
+			c[c.length-1][1] = title;
 			localStorage.setItem("bst", JSON.stringify(curr));
 		}
 	}
