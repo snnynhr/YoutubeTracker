@@ -231,24 +231,22 @@ function onAppendInitFs(fs) {
 	    }, errorHandler);
 	}, errorHandlerInit);
 }
-function update(url)
+function update(url,title)
 {
 	var curr = JSON.parse(localStorage.getItem("bst"));
 	var num = parseInt(localStorage.getItem("num"));
 	var n = url.search("www.youtube.com/watch");
 	if(n >= 0)
 	{
-		//console.log(tab.title);
-		valid = true;
-		seenFirst = true;
+		//valid = true;
+		//seenFirst = true;
 		var entry = url.substring(n + 21);	
-		var i = 1;
 		var f = false;
-		
+	
 		var LENGTH = parseInt(localStorage.getItem("dss"));
 		var h = ((sha(entry) % LENGTH) + LENGTH) % LENGTH;
 		var hcurr = curr[h];
-		for(i = 1; i < hcurr.length; i++)
+		for(var i = 1; i < hcurr.length; i++)
 		{
 			if(entry.localeCompare(hcurr[i][0]) == 0)
 			{
@@ -258,27 +256,46 @@ function update(url)
 		}
 		if(!f)
 		{
-			hcurr[hcurr.length] = [entry];
+			/* Remove trailing tag */
+			var end = " - YouTube";
+			if(title.substring(title.length-end.length).search("YouTube") >=0)
+				title = title.substring(0,title.length-end.length);
+
+			/* Update bst */
+			hcurr[hcurr.length] = [entry,title];
+			curr[h] = hcurr;
+			localStorage.setItem("bst", JSON.stringify(curr));
+
+			/* Update queue */
 			var q = JSON.parse(localStorage.getItem("queue"));
 			q.shift();
 			q.push(h+" "+hcurr.length);
 			localStorage.setItem("queue",JSON.stringify(q));
-			curr[h] = hcurr;
-			currInd = h;
+			
+			/* Update num */
 			localStorage.setItem("num", num + 1);
-			localStorage.setItem("bst", JSON.stringify(curr));
+			
+			//oldtitle = title;
+			//var curr = JSON.parse(localStorage.getItem("bst"));
+			//c = curr[currInd];
+			//c[c.length-1][1] = title;
+			//localStorage.setItem("bst", JSON.stringify(curr));
+
+			/* Check for file dump */
 			var CUT = localStorage.getItem("min");
 			if(num > CUT)
 			{
 				window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandler);
 			}
+
 		}
 	}
-	else
-	{
-		valid = false;
-	}
+	//else
+	//{
+	//	valid = false;
+	//}
 }
+/*
 chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 	//console.log(changeInfo.url +"\ntitle: " + tab.title + "\nurl: " + tab.url + "\nstatus: " + tab.status + "\nhighl: "+tab.highlighted + "\nactive" + tab.active + "\n");
 	if(changeInfo.url != undefined)
@@ -287,7 +304,7 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 	}
 	else
 	{
-		if(valid && currInd != -1 && tab.title != oldtitle && tab.title.search("YouTube")>=0) /* loosen pressure on localStorage pipes */
+		if(valid && currInd != -1 && tab.title != oldtitle && tab.title.search("YouTube")>=0) 
 		{
 			if(!seenFirst)
 			{
@@ -304,16 +321,24 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
 			localStorage.setItem("bst", JSON.stringify(curr));
 		}
 	}
-});
+});*/
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
-    if (request.greeting == "updated")
+    if (request.msg == "updated")
     {
-      initSystem();
-      sendResponse({farewell: "goodbye"});
+    	initSystem();
+    	sendResponse({farewell: "goodbye"});
+    }
+    else if(request.msg == "track")
+    {
+    	update(sender.tab.url,sender.tab.title);
+    }
+    else
+    {
+    	console.log(request.msg);
     }
 });
