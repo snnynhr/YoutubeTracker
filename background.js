@@ -6,11 +6,6 @@ var num = localStorage.getItem("num");
 var dss = localStorage.getItem("dss");
 var min = localStorage.getItem("min");
 var q = localStorage.getItem("queue");
-var currInd = -1;
-var oldtitle = "";
-var seenFirst = false;
-var first; //Fix first undefined problem - NYI
-var valid = false;
 
 /*
  * Init extensions settings after cold upgrade
@@ -46,11 +41,6 @@ function initSystem()
 	{
 		localStorage.setItem("min",CUTOFF);
 	}
-	currInd = -1;
-	oldtitle = "";
-	first = true;
-	valid = false;
-	seenFirst = false;
 	q = [];
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
@@ -219,11 +209,6 @@ function onAppendInitFs(fs) {
 			initBst();
 			initNum();
 			initQueue();
-			currInd = -1;
-			oldtitle = "";
-			first = true;
-			valid = false;
-			seenFirst = false;
 			// Create a new Blob and write it to log.txt.
 			var blob = new Blob([data], {type: 'text/plain'});
 
@@ -238,8 +223,6 @@ function update(url,title)
 	var n = url.search("www.youtube.com/watch");
 	if(n >= 0)
 	{
-		//valid = true;
-		//seenFirst = true;
 		var entry = url.substring(n + 21);	
 		var f = false;
 	
@@ -275,12 +258,6 @@ function update(url,title)
 			/* Update num */
 			localStorage.setItem("num", num + 1);
 			
-			//oldtitle = title;
-			//var curr = JSON.parse(localStorage.getItem("bst"));
-			//c = curr[currInd];
-			//c[c.length-1][1] = title;
-			//localStorage.setItem("bst", JSON.stringify(curr));
-
 			/* Check for file dump */
 			var CUT = localStorage.getItem("min");
 			if(num > CUT)
@@ -290,38 +267,7 @@ function update(url,title)
 
 		}
 	}
-	//else
-	//{
-	//	valid = false;
-	//}
 }
-/*
-chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
-	//console.log(changeInfo.url +"\ntitle: " + tab.title + "\nurl: " + tab.url + "\nstatus: " + tab.status + "\nhighl: "+tab.highlighted + "\nactive" + tab.active + "\n");
-	if(changeInfo.url != undefined)
-	{
-		update(changeInfo.url);
-	}
-	else
-	{
-		if(valid && currInd != -1 && tab.title != oldtitle && tab.title.search("YouTube")>=0) 
-		{
-			if(!seenFirst)
-			{
-				update(tab.url);
-			}
-			var end = " - YouTube";
-			var title = tab.title;
-			if(title.substring(title.length-end.length).search("YouTube") >=0)
-				title = title.substring(0,title.length-end.length);
-			oldtitle = title;
-			var curr = JSON.parse(localStorage.getItem("bst"));
-			c = curr[currInd];
-			c[c.length-1][1] = title;
-			localStorage.setItem("bst", JSON.stringify(curr));
-		}
-	}
-});*/
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -331,7 +277,6 @@ chrome.runtime.onMessage.addListener(
     if (request.msg == "updated")
     {
     	initSystem();
-    	sendResponse({farewell: "goodbye"});
     }
     else if(request.msg == "track")
     {
