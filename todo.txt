@@ -1,0 +1,2 @@
+1. Update UI
+2. Show history in html page -> store date as well.

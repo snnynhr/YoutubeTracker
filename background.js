@@ -208,7 +208,6 @@ function onAppendInitFs(fs) {
 			/* Reset localStorage */
 			initBst();
 			initNum();
-			initQueue();
 			// Create a new Blob and write it to log.txt.
 			var blob = new Blob([data], {type: 'text/plain'});
 
