@@ -1,23 +1,30 @@
-header
-{
-  margin-top: 0px;
-  height: 30px;
-  margin-bottom: 0px;
-  border-bottom: 1px solid #e1ddd8;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  font-size: 19px;
-  font-weight: bold;
-}
-
 body
 {
   min-width: 250px;
+  max-width: 250px;
+  margin: 0px;
   font-family: Segoe UI, Arial, sans-serif;
   font-size: 13px;
   color: #545454;
   background-color: #f8f6f2;
-  padding: 5px;
+}
+
+/* Header */
+header
+{
+  height: 45px;
+  margin-bottom: 0px;
+  padding-left: 7px;
+  border-bottom: 1px solid #e1ddd8;
+}
+#titleText1
+{
+  font-size: 18px;
+  font-weight: bolder;
+}
+#wrapper
+{
+  padding: 0px 0px;
 }
 #list
 {
@@ -27,7 +34,63 @@ body
 #logo
 {
   position: relative;
-  height: 150px;
-  width: 250px;
-  margin: 0px auto;
+  font-size: 19px;
+  font-weight: bold;
+  top: 10px;
+  height: 15px;
+}
+.menu-item
+{
+  padding: 10px 0px 10px 15px;
+}
+
+.menu-item:hover
+{
+  background-color: #ece7df;
+}
+.icon
+{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  margin-top: -2px;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 15px;
+}
+li ol
+{
+  margin-left: 35px;
+}
+
+li li
+{
+  cursor: default;
+  padding: 10px 15px;
+}
+/* List */
+ol
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+li
+{
+  cursor: pointer;
+  list-style-type: none;
+  white-space: nowrap;
+  border-top: 1px dashed #a5a4a1;
+}
+/* Footer */
+footer
+{
+  cursor: pointer;
+  padding: 10px 100px;
+  border-top: 1px solid #e1ddd8;
+}
+footer:hover
+{
+  background-color: #ece7df;
 }
