@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="skin/options.css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>YouTubeTracker Options</title>
-<style>
-</style>
+	<link rel="stylesheet" type="text/css" href="skin/options.css">
+	<title>YouTubeTracker Options</title>
 </head>
+
+
+	
+<body>
 	<header>
-		<div>
-		<img id = "logo" src="icon/icon128.png" alt="some_text" align="middle">
-			<b id = "text">Options</b>
-		</div>
+	<div>
+	<img id = "logo" src="icon/icon128.png" alt="some_text" align="middle">
+		<b id = "text">Options</b>
+	</div>
 	</header>
-	<body>
+
+	<div> 
+		<span id = "title1">Storage Options:</span>
+		<br><br>
+		<div id = "wrapper1">
+			<div>
+				Data Storage Size (#):
+			</div>
+			<input type="number" id="dss" >
+			<div>
+				Minimum Entries till write:
+			</div>
+			<input type="number" id="min" >
+			<div id="status"></div>
+			<button id="save">Save</button>
+			<script src="options.js"></script>
+			<br><br>
+			</div>
+		</div>
 	<div>
-		Data Storage Size (#):
+		<span id = "title1">History:</span>
+		<br><br>
+		<select id ="history" multiple size="20"></select>
+		<br><br>
+		<button id="del">Delete</button>
 	</div>
-	<input type="number" id="dss" >
-	<div>
-		Minimum Entries till write:
-	</div>
-	<input type="number" id="min" >
-	<div id="status"></div>
-	<button id="save">Save</button>
-	<script src="options.js"></script>
-	</body>
+</body>
 </html>
