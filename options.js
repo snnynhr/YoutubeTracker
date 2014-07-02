@@ -22,7 +22,7 @@ function delete_entries()
 			res += opt.text+"\n";
 		}
 	}
-	res = res.substring(0,res.length-2);
+	res = res.substring(0,res.length-1);
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function(fs)
 	{
 	  	fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
@@ -33,9 +33,7 @@ function delete_entries()
 				        fileWriter.write(blob);
 				    }
 				    else
-				    {
 				    	updateHistory();
-				    }
 				};
 				fileWriter.truncate(0);
 	    	}, errorHandler);
