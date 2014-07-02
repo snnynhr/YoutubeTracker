@@ -12,8 +12,35 @@ function save_options() {
 
 function delete_entries()
 {
-	var arr = document.getElementById('history').value;
-	console.log(arr);
+	var arr = document.getElementById('history').options;
+	var res = "";
+	for(var i = 0; i<arr.length; i++)
+	{
+		var opt = arr[arr.length-1-i];
+		if(!opt.selected)
+		{
+			res += opt.text+"\n";
+		}
+	}
+	res = res.substring(0,res.length-2);
+	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function(fs)
+	{
+	  	fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
+		    fileEntry.createWriter(function(fileWriter) {
+		    	var blob = new Blob([res], {type: 'text/plain'});
+				fileWriter.onwriteend = function() {
+				    if (fileWriter.length === 0) {
+				        fileWriter.write(blob);
+				    }
+				    else
+				    {
+				    	updateHistory();
+				    }
+				};
+				fileWriter.truncate(0);
+	    	}, errorHandler);
+	  	}, errorHandler);
+	}, errorHandler);
 }
 
 function clear_duplicates()
@@ -63,8 +90,7 @@ function extract(fs) {
 							    if (fileWriter.length === 0) {
 							        fileWriter.write(blob);
 							    } else {
-							        //file has been overwritten with blob
-							        //use callback or resolve promise
+							        updateHistory();
 							    }
 							};
 							fileWriter.truncate(0);
@@ -100,6 +126,10 @@ function exec()
 	document.getElementById('clr').addEventListener('click',
 		clear_duplicates);
 	restore_options();
+	updateHistory();
+}
+function updateHistory()
+{
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
 }
 
@@ -117,7 +147,7 @@ function onInitFs(fs) {
          	var e = arr[arr.length-1-i];
          	var n = e.search(":");
          	var e = e.substring(n+1);
-         	res += "<option value=\"" + e+"\">"+e+"</option>\n";
+         	res += "<option value=" + i.toString() +  ">"+e+"</option>\n";
          }
          document.getElementById("history").innerHTML = res;
        };
