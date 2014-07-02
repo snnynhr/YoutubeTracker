@@ -2,29 +2,109 @@ function debug(m)
 {
 	chrome.extension.sendMessage({msg: m});
 }
+
 // Saves options to chrome.storage
 function save_options() {
-  localStorage.setItem("dss", document.getElementById('dss').value);
-  localStorage.setItem("min", document.getElementById('min').value);
-  debug('updated');
+	localStorage.setItem("dss", document.getElementById('dss').value);
+	localStorage.setItem("min", document.getElementById('min').value);
+	debug('updated');
+}
+
+function delete_entries()
+{
+	var arr = document.getElementById('history').value;
+	console.log(arr);
+}
+
+function clear_duplicates()
+{
+	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, extract, errorHandler);
+}
+
+function extract(fs) {
+	fs.root.getFile('yttrack.txt', {}, function(fileEntry) {
+		var tbl = [];
+	  	for(var i=0; i<1001; i++)
+	  		tbl[i] = [];
+	    fileEntry.file(function(file) 
+	    {
+			var reader = new FileReader();
+			reader.onloadend = function(e) {
+				var res = "";
+				var txtArea = this.result;
+				var arr = txtArea.split("\n");
+				for(var i = 0; i < arr.length; i++)
+				{
+					var ind = (djb2(arr[i]) % 1001 + 1001) % 1001;
+					var flag = true;
+					for(var j = 0; j < tbl[ind].length; j++)
+					{
+						if(tbl[ind][j] == arr[i])
+						{
+							flag = false;
+							break;
+						}
+					}
+					if(flag)
+					{
+						var a = tbl[ind];
+						a[a.length] = arr[i];
+						res += arr[i]+"\n";
+					}
+				}
+				res = res.substring(0,res.length-2);
+				window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function(fs)
+				{
+				  	fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
+					    fileEntry.createWriter(function(fileWriter) {
+					    	var blob = new Blob([res], {type: 'text/plain'});
+							
+							fileWriter.onwriteend = function() {
+							    if (fileWriter.length === 0) {
+							        fileWriter.write(blob);
+							    } else {
+							        //file has been overwritten with blob
+							        //use callback or resolve promise
+							    }
+							};
+							fileWriter.truncate(0);
+				    	}, errorHandler);
+				  	}, errorHandler);
+				}, errorHandler);
+       		};
+       		reader.readAsText(file);
+    	}, errorHandler);
+  	}, errorHandler);
+}
+function djb2(str)
+{
+	var hash = 5381;
+    var i = 0;
+    for(i = 0; i < str.length; i++)
+        hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    return hash;
 }
 
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  document.getElementById('dss').value = localStorage.getItem("dss");
-  document.getElementById('min').value = localStorage.getItem("min");
+	document.getElementById('dss').value = localStorage.getItem("dss");
+	document.getElementById('min').value = localStorage.getItem("min");
 }
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+function exec()
+{
+	document.getElementById('save').addEventListener('click',
+	    save_options);
+	document.getElementById('del').addEventListener('click',
+	    delete_entries);
+	document.getElementById('clr').addEventListener('click',
+		clear_duplicates);
+	restore_options();
+	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
+}
 
 function onInitFs(fs) {
-
   fs.root.getFile('yttrack.txt', {}, function(fileEntry) {
-  	
-    // Get a File object representing the file,
-    // then use FileReader to read its contents.
     fileEntry.file(function(file) {
        var reader = new FileReader();
 
@@ -46,9 +126,7 @@ function onInitFs(fs) {
     }, errorHandler);
 
   }, errorHandler);
-
 }
-window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
 
 function errorHandler(e) {
   var msg = '';
@@ -76,3 +154,4 @@ function errorHandler(e) {
 
   debug('Error: ' + msg);
 }
+document.addEventListener('DOMContentLoaded', exec);

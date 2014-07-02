@@ -3,10 +3,9 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="skin/options.css">
 	<title>YouTubeTracker Options</title>
+	<script src="options.js"></script>
 </head>
 
-
-	
 <body>
 	<header>
 	<div>
@@ -14,11 +13,10 @@
 		<b id = "text">Options</b>
 	</div>
 	</header>
-
 	<div> 
-		<span id = "title1">Storage Options:</span>
+		<span id = "title">Storage Options:</span>
 		<br><br>
-		<div id = "wrapper1">
+		<div id = "wrapper">
 			<div>
 				Data Storage Size (#):
 			</div>
@@ -29,16 +27,23 @@
 			<input type="number" id="min" >
 			<div id="status"></div>
 			<button id="save">Save</button>
-			<script src="options.js"></script>
 			<br><br>
-			</div>
 		</div>
-	<div>
-		<span id = "title1">History:</span>
+
+		<span id = "title">Clear Duplicates:</span>
 		<br><br>
-		<select id ="history" multiple size="20"></select>
+		<div id="wrapper">
+			<button id="clr">Clear</button>
+		</div>
 		<br><br>
-		<button id="del">Delete</button>
+
+		<span id = "title">History:</span>
+		<br><br>
+		<div id = "wrapper">
+			<select id ="history" multiple size="20"></select>
+			<br><br>
+			<button id="del">Delete</button>
+		</div>
 	</div>
 </body>
 </html>
