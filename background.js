@@ -49,24 +49,24 @@ function errorHandlerInit(e)
 {
 	msg = '';
 	switch (e.code) {
-	  case FileError.QUOTA_EXCEEDED_ERR:
-	    msg = 'QUOTA_EXCEEDED_ERR';
-	    break;
-	  case FileError.NOT_FOUND_ERR:
-	    window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onWriteInitFs, errorHandler);
-	    break;
-	  case FileError.SECURITY_ERR:
-	    msg = 'SECURITY_ERR';
-	    break;
-	  case FileError.INVALID_MODIFICATION_ERR:
-	    msg = 'INVALID_MODIFICATION_ERR';
-	    break;
-	  case FileError.INVALID_STATE_ERR:
-	    msg = 'INVALID_STATE_ERR';
-	    break;
-	  default:
-	    msg = 'Unknown Error';
-	    break;
+	case FileError.QUOTA_EXCEEDED_ERR:
+		msg = 'QUOTA_EXCEEDED_ERR';
+		break;
+	case FileError.NOT_FOUND_ERR:
+		window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onWriteInitFs, errorHandler);
+		break;
+	case FileError.SECURITY_ERR:
+		msg = 'SECURITY_ERR';
+		break;
+	case FileError.INVALID_MODIFICATION_ERR:
+		msg = 'INVALID_MODIFICATION_ERR';
+		break;
+	case FileError.INVALID_STATE_ERR:
+		msg = 'INVALID_STATE_ERR';
+		break;
+	default:
+		msg = 'Unknown Error';
+		break;
 	};
 	if(msg != '')
 		console.log('Error: ' + msg);		
@@ -109,10 +109,10 @@ function initQueue()
 function djb2(str)
 {
 	var hash = 5381;
-    var i = 0;
-    for(i = 0; i < str.length; i++)
-        hash = ((hash << 5) + hash) + str.charCodeAt(i);
-    return hash;
+	var i = 0;
+	for(i = 0; i < str.length; i++)
+		hash = ((hash << 5) + hash) + str.charCodeAt(i);
+	return hash;
 }
 
 /*
@@ -122,8 +122,8 @@ function sha(str)
 {
 	var LENGTH = parseInt(localStorage.getItem("dss"));
 	x = new BigInteger(SHA1(str), 16);
-  	y = new BigInteger(LENGTH.toString(16), 16);
-  	z = x.mod(y);
+	y = new BigInteger(LENGTH.toString(16), 16);
+	z = x.mod(y);
 	return parseInt(z.toString(16),16);
 }
 
@@ -132,66 +132,66 @@ function sha(str)
  * fileSystem error Handler
  */ 
 function errorHandler(e) {
-  var msg = '';
+	var msg = '';
 
-  switch (e.code) {
-    case FileError.QUOTA_EXCEEDED_ERR:
-      msg = 'QUOTA_EXCEEDED_ERR';
-      break;
-    case FileError.NOT_FOUND_ERR:
-      msg = 'NOT_FOUND_ERR';
-      break;
-    case FileError.SECURITY_ERR:
-      msg = 'SECURITY_ERR';
-      break;
-    case FileError.INVALID_MODIFICATION_ERR:
-      msg = 'INVALID_MODIFICATION_ERR';
-      break;
-    case FileError.INVALID_STATE_ERR:
-      msg = 'INVALID_STATE_ERR';
-      break;
-    default:
-      msg = 'Unknown Error';
-      break;
-  };
+	switch (e.code) {
+	case FileError.QUOTA_EXCEEDED_ERR:
+		msg = 'QUOTA_EXCEEDED_ERR';
+		break;
+	case FileError.NOT_FOUND_ERR:
+		msg = 'NOT_FOUND_ERR';
+		break;
+	case FileError.SECURITY_ERR:
+		msg = 'SECURITY_ERR';
+		break;
+	case FileError.INVALID_MODIFICATION_ERR:
+		msg = 'INVALID_MODIFICATION_ERR';
+		break;
+	case FileError.INVALID_STATE_ERR:
+		msg = 'INVALID_STATE_ERR';
+		break;
+	default:
+		msg = 'Unknown Error';
+		break;
+	};
 
-  console.log('Error: ' + msg);
+	console.log('Error: ' + msg);
 }
 
 /* 
  * Create empty resource file
  */
 function onWriteInitFs(fs) {
-  	fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
+	fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
 
-	    // Create a FileWriter object for our FileEntry (log.txt).
-	    fileEntry.createWriter(function(fileWriter) {
+		// Create a FileWriter object for our FileEntry (log.txt).
+		fileEntry.createWriter(function(fileWriter) {
 
 			fileWriter.onwriteend = function(e) {
-			console.log('Write completed.');
+				console.log('Write completed.');
 			};
 
 			fileWriter.onerror = function(e) {
-			console.log('Write failed: ' + e.toString());
+				console.log('Write failed: ' + e.toString());
 			};
 
 			// Create a new Blob and write it to log.txt.
 			var blob = new Blob([''], {type: 'text/plain'});
 
-		    fileWriter.write(blob);
-    	}, errorHandler);
-  	}, errorHandler);
+			fileWriter.write(blob);
+		}, errorHandler);
+	}, errorHandler);
 }
 
 /*
  * Append to existing resource file
  */
 function onAppendInitFs(fs) {
-  	fs.root.getFile('yttrack.txt', {create: false}, function(fileEntry) {
+	fs.root.getFile('yttrack.txt', {create: false}, function(fileEntry) {
 
-    	// Create a FileWriter object for our FileEntry (log.txt).
-	    fileEntry.createWriter(function(fileWriter) 
-	    {
+		// Create a FileWriter object for our FileEntry (log.txt).
+		fileEntry.createWriter(function(fileWriter) 
+				{
 			fileWriter.seek(fileWriter.length); // Start write position at EOF.
 
 			/* Get data */
@@ -212,7 +212,7 @@ function onAppendInitFs(fs) {
 			var blob = new Blob([data], {type: 'text/plain'});
 
 			fileWriter.write(blob);
-	    }, errorHandler);
+				}, errorHandler);
 	}, errorHandlerInit);
 }
 function update(url,title)
@@ -224,7 +224,7 @@ function update(url,title)
 	{
 		var entry = url.substring(n + 21);	
 		var f = false;
-	
+
 		var LENGTH = parseInt(localStorage.getItem("dss"));
 		var h = ((sha(entry) % LENGTH) + LENGTH) % LENGTH;
 		var hcurr = curr[h];
@@ -253,10 +253,10 @@ function update(url,title)
 			q.shift();
 			q.push(h+" "+hcurr.length);
 			localStorage.setItem("queue",JSON.stringify(q));
-			
+
 			/* Update num */
 			localStorage.setItem("num", num + 1);
-			
+
 			/* Check for file dump */
 			var CUT = localStorage.getItem("min");
 			if(num > CUT)
@@ -269,20 +269,20 @@ function update(url,title)
 }
 
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    if (request.msg == "updated")
-    {
-    	initSystem();
-    }
-    else if(request.msg == "track")
-    {
-    	update(sender.tab.url,sender.tab.title);
-    }
-    else
-    {
-    	console.log(request.msg);
-    }
-});
+		function(request, sender, sendResponse) {
+			//console.log(sender.tab ?
+			//           "from a content script:" + sender.tab.url :
+			//            "from the extension");
+			if (request.msg == "updated")
+			{
+				initSystem();
+			}
+			else if(request.msg == "track")
+			{
+				update(sender.tab.url,sender.tab.title);
+			}
+			else
+			{
+				console.log(request.msg);
+			}
+		});
