@@ -22,10 +22,7 @@ header
   font-size: 18px;
   font-weight: bolder;
 }
-#wrapper
-{
-  padding: 0px 0px;
-}
+
 #list
 {
   font-size: 16px;
@@ -37,11 +34,13 @@ header
   font-size: 19px;
   font-weight: bold;
   top: 10px;
-  height: 15px;
+  height: 15px;  
 }
 .menu-item
 {
   padding: 10px 0px 10px 15px;
+  white-space: nowrap;
+  word-break: break-word;
 }
 
 .menu-item:hover
@@ -58,17 +57,14 @@ header
   vertical-align: top;
   font-weight: bold;
   font-size: 15px;
-}
-li ol
-{
-  margin-left: 35px;
+  white-space: nowrap;
 }
 
-li li
+#a,#b,#c,#d,#e
 {
-  cursor: default;
-  padding: 10px 15px;
+  white-space: pre;
 }
+
 /* List */
 ol
 {
@@ -83,6 +79,7 @@ li
   white-space: nowrap;
   border-top: 1px dashed #a5a4a1;
 }
+
 /* Footer */
 footer
 {

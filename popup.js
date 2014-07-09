@@ -12,10 +12,10 @@ function init()
         {
             var h = parseInt(q[4-i].substring(0,x));
             var ind = parseInt(q[4-i].substring(x+1));
-            if(curr[h][ind-1][1].length <= 29)
+            if(curr[h][ind-1][1].length <= 999)
                 document.getElementById(arr[i]).innerHTML = curr[h][ind-1][1];
             else
-                document.getElementById(arr[i]).innerHTML = curr[h][ind-1][1].substring(0,29) + "...";
+                document.getElementById(arr[i]).innerHTML = curr[h][ind-1][1].substring(0,999) + "...";
             document.getElementById(arr[i]).href = prefix + curr[h][ind-1][0];
         }
     }
