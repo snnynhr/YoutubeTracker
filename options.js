@@ -1,3 +1,4 @@
+var prefix = "https://www.youtube.com/watch";
 function debug(m)
 {
 	chrome.extension.sendMessage({msg: m});
@@ -19,12 +20,12 @@ function delete_entries()
 		var opt = arr[arr.length-1-i];
 		if(!opt.selected)
 		{
-			res += opt.text+"\n";
+			res += opt.value+":"+opt.text+"\n";
 		}
 	}
 	res = res.substring(0,res.length-1);
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function(fs)
-			{
+	{
 		fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
 			fileEntry.createWriter(function(fileWriter) {
 				var blob = new Blob([res], {type: 'text/plain'});
@@ -52,7 +53,7 @@ function extract(fs) {
 		for(var i=0; i<1001; i++)
 			tbl[i] = [];
 		fileEntry.file(function(file) 
-				{
+		{
 			var reader = new FileReader();
 			reader.onloadend = function(e) {
 				var res = "";
@@ -79,7 +80,7 @@ function extract(fs) {
 				}
 				res = res.substring(0,res.length-2);
 				window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function(fs)
-						{
+				{
 					fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
 						fileEntry.createWriter(function(fileWriter) {
 							var blob = new Blob([res], {type: 'text/plain'});
@@ -94,12 +95,26 @@ function extract(fs) {
 							fileWriter.truncate(0);
 						}, errorHandler);
 					}, errorHandler);
-						}, errorHandler);
+				}, errorHandler);
 			};
 			reader.readAsText(file);
-				}, errorHandler);
+		}, errorHandler);
 	}, errorHandler);
 }
+
+function open()
+{
+	var arr = document.getElementById('history').options;
+	for(var i = 0; i<arr.length; i++)
+	{
+		var opt = arr[arr.length-1-i];
+		if(opt.selected)
+		{
+			chrome.tabs.create({url: prefix + opt.value});
+		}
+	}
+}
+
 function djb2(str)
 {
 	var hash = 5381;
@@ -124,13 +139,14 @@ function exec()
 			delete_entries);
 	document.getElementById('clr').addEventListener('click',
 			clear_duplicates);
+	document.getElementById('open').addEventListener('click',
+			open);
 	window.addEventListener('keydown',
-			function(e){
-
-		if(e.keyCode === 46)
-		{
-			delete_entries();
-		}
+		function(e){
+			if(e.keyCode === 46)
+			{
+				delete_entries();
+			}
 	});
 	restore_options();
 	updateHistory();
@@ -156,8 +172,9 @@ function onInitFs(fs) {
 					{
 						var e = arr[arr.length-1-i];
 						var n = e.search(":");
+						var d = e.substring(0,n);
 						var e = e.substring(n+1);
-						res += "<option value=" + i.toString() +  ">"+e+"</option>\n";
+						res += "<option value=\"" + d +  "\">"+e+"</option>\n";
 					}
 				}
 				document.getElementById("history").innerHTML = res;
