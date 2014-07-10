@@ -34,11 +34,11 @@ header
   font-size: 19px;
   font-weight: bold;
   top: 10px;
-  height: 15px;  
+  height: 12px;  
 }
 .menu-item
 {
-  padding: 10px 0px 10px 15px;
+  padding: 10px 10px 10px 15px;
   white-space: nowrap;
   word-break: break-word;
 }
@@ -84,8 +84,11 @@ li
 footer
 {
   cursor: pointer;
-  padding: 10px 100px;
+  padding: 10px 0px;
   border-top: 1px solid #e1ddd8;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
 }
 footer:hover
 {

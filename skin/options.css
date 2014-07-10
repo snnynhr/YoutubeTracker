@@ -50,3 +50,23 @@ body
 {
   width: 700px;
 }
+/* Button */
+.button
+{
+  width: 100px;
+  border:1px solid #72021c;
+  border-radius: 3px;
+  font-family: arial, helvetica, sans-serif; 
+  padding: 3px 3px 3px 3px;
+  display:inline-block;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+  font-weight:bold; 
+  color: #FFFFFF;
+  background-color: #a90329; 
+}
+
+.button:hover{
+ border:1px solid #450111;
+ background-color: #77021d;
+ background-image: linear-gradient(to bottom, #77021d, #3a000d);
+}
