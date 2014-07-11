@@ -168,12 +168,12 @@ function onInitFs(fs) {
 				var arr = txtArea.split("\n");
 				for(var i = 0; i<arr.length; i++)
 				{
-					if(arr[arr.length-1-i]!="")
+					if(arr[arr.length-1-i]!=="")
 					{
-						var e = arr[arr.length-1-i];
+						e = arr[arr.length-1-i];
 						var n = e.search(":");
 						var d = e.substring(0,n);
-						var e = e.substring(n+1);
+						e = e.substring(n+1);
 						res += "<option value=\"" + d +  "\">"+e+"</option>\n";
 					}
 				}
@@ -208,7 +208,7 @@ function errorHandler(e) {
 	default:
 		msg = 'Unknown Error';
 		break;
-	};
+	}
 
 	debug('Error: ' + msg);
 }

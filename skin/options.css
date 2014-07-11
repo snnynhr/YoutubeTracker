@@ -6,6 +6,7 @@ header
   border-bottom: 1px solid #e1ddd8;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  text-shadow: 2px 2px 5px #888888;
 }
 
 body
@@ -34,7 +35,7 @@ body
   position: relative;
   height: 150px;
   width: 150px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 #title
 {
@@ -49,6 +50,8 @@ body
 #history
 {
   width: 700px;
+  border: 2px solid #a90329;
+  box-shadow: 5px 5px 5px #888888;
 }
 /* Button */
 .button
@@ -63,6 +66,7 @@ body
   font-weight:bold; 
   color: #FFFFFF;
   background-color: #a90329; 
+  box-shadow: 3px 3px 5px #888888;
 }
 
 .button:hover{
