@@ -1,1 +1,6 @@
-C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --pack-extension=C:\Users\Sunny Nahar\Desktop\Computer Science\Chrome Extensions\YouTubeTracker --pack-extension-key=C:\Users\Sunny Nahar\Desktop\Computer Science\Chrome Extensions\YouTubeTracker.pem
+set ext=%CD%
+set key=%CD%.pem 
+set src=%CD%.crx
+DEL YouTubeTracker.crx
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --pack-extension="%ext%" --pack-extension-key="%key%"
+COPY "%src%" YouTubeTracker.crx /y
