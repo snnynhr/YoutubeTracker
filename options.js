@@ -78,7 +78,8 @@ function extract(fs) {
 						res += arr[i]+"\n";
 					}
 				}
-				res = res.substring(0,res.length-2);
+				while(res.substring(res.length-1)=="\n")
+					res = res.substring(0,res.length-1);
 				window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function(fs)
 				{
 					fs.root.getFile('yttrack.txt', {create: true}, function(fileEntry) {
