@@ -1,0 +1,1380 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"confirm"
+			],
+			[
+				"resto",
+				"restoreCrash"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"add",
+				"add"
+			],
+			[
+				"n",
+				"networkPredictionEnabled"
+			],
+			[
+				"net",
+				"network"
+			],
+			[
+				"dnt",
+				"dnt"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"le",
+				"levelOfControl"
+			],
+			[
+				"log",
+				"log"
+			],
+			[
+				"mart",
+				"margin-top"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"word",
+				"break-word"
+			],
+			[
+				"dele",
+				"deleteCookiesEntries"
+			],
+			[
+				"load",
+				"loadCookieWL"
+			],
+			[
+				"loa",
+				"loadHistoryWL"
+			],
+			[
+				"hist",
+				"historyWL"
+			],
+			[
+				"histo",
+				"historyWL"
+			],
+			[
+				"history",
+				"loadHistoryWL"
+			],
+			[
+				"l",
+				"length-2"
+			],
+			[
+				"del",
+				"delete_entries"
+			],
+			[
+				"up",
+				"updateHistory"
+			],
+			[
+				"clr",
+				"clear_duplicates"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"txt",
+				"txtArea"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"hi",
+				"history"
+			],
+			[
+				"cur",
+				"current"
+			],
+			[
+				"co",
+				"cookies"
+			],
+			[
+				"cler",
+				"clearCookies"
+			],
+			[
+				"tab",
+				"tab"
+			],
+			[
+				"chr",
+				"chromeSession"
+			],
+			[
+				"ch",
+				"chromeSession"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"ses",
+				"sessionStack"
+			],
+			[
+				"tabs",
+				"tabs"
+			],
+			[
+				"se",
+				"session"
+			],
+			[
+				"wind",
+				"windows"
+			],
+			[
+				"yt",
+				"ytQuality"
+			],
+			[
+				"lo",
+				"localStorage"
+			],
+			[
+				"auto",
+				"autoHD-setting"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"al",
+				"vertical-align"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"ali",
+				"text-align"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"ad",
+				"addEventListener"
+			],
+			[
+				"coo",
+				"cookies"
+			],
+			[
+				"cok",
+				"cookiesFlag"
+			],
+			[
+				"clas",
+				"classList"
+			],
+			[
+				"sen",
+				"sender"
+			],
+			[
+				"tok",
+				"tokenMatchIC"
+			],
+			[
+				"token",
+				"tokenMatchIC"
+			],
+			[
+				"send",
+				"sendResponse"
+			],
+			[
+				"au",
+				"autoHD-text"
+			],
+			[
+				"set",
+				"setItem"
+			],
+			[
+				"cla",
+				"classList"
+			],
+			[
+				"all",
+				"all_urls"
+			],
+			[
+				"cli",
+				"clickhide"
+			],
+			[
+				"cl",
+				"classList"
+			],
+			[
+				"bol",
+				"bolder"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"po",
+				"popup_status"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"c",
+				"c"
+			],
+			[
+				"ind",
+				"ind-1"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"q",
+				"q"
+			],
+			[
+				"b",
+				"b"
+			],
+			[
+				"init",
+				"initQueue"
+			],
+			[
+				"str",
+				"stringify"
+			],
+			[
+				"toke",
+				"tokenMatchIC"
+			],
+			[
+				"serv",
+				"serviceInstalled"
+			],
+			[
+				"ser",
+				"serviceInstalled"
+			],
+			[
+				"key",
+				"keyValEqMatch"
+			],
+			[
+				"return",
+				"return"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"F",
+				"False"
+			],
+			[
+				"local",
+				"localStorage"
+			],
+			[
+				"hea",
+				"header	Tag"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"cu",
+				"currInd"
+			],
+			[
+				"err",
+				"errorHandlerInit"
+			],
+			[
+				"ent",
+				"entered"
+			],
+			[
+				"par",
+				"parseInt"
+			],
+			[
+				"error",
+				"errorHandler"
+			],
+			[
+				"ini",
+				"initSystem"
+			],
+			[
+				"aud",
+				"auditd"
+			],
+			[
+				"ru",
+				"runOnShell"
+			],
+			[
+				"sys",
+				"system-auth-ac"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"pass",
+				"passwd"
+			],
+			[
+				"ne",
+				"network"
+			],
+			[
+				"pam",
+				"pam_unix"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"star",
+				"start_tls"
+			],
+			[
+				"int",
+				"inet_interfaces"
+			],
+			[
+				"cf",
+				"cf"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"Clie",
+				"ClientAliveCountMax"
+			],
+			[
+				"True",
+				"True"
+			],
+			[
+				"P",
+				"PermitUserEnvironment"
+			],
+			[
+				"ssh",
+				"ssh_config"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"op",
+				"opasswd"
+			],
+			[
+				"rune",
+				"runOnShell"
+			],
+			[
+				"audi",
+				"audit_time_rules"
+			],
+			[
+				"max_log_f",
+				"max_log_file_action"
+			],
+			[
+				"a",
+				"audit"
+			],
+			[
+				"fix",
+				"fixRule136"
+			],
+			[
+				"che",
+				"checkRule136"
+			],
+			[
+				"run",
+				"runOnShell"
+			],
+			[
+				"lib",
+				"libuser"
+			],
+			[
+				"r",
+				"rsplit"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "manifest.json",
+			"settings":
+			{
+				"buffer_size": 877,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "background.js",
+			"settings":
+			{
+				"buffer_size": 5869,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "options.js",
+			"settings":
+			{
+				"buffer_size": 5108,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "options.html",
+			"settings":
+			{
+				"buffer_size": 1176,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "skin/options.css",
+			"settings":
+			{
+				"buffer_size": 1261,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup.js",
+			"settings":
+			{
+				"buffer_size": 980,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "popup.html",
+			"settings":
+			{
+				"buffer_size": 1092,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "skin/popup.css",
+			"settings":
+			{
+				"buffer_size": 1288,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "youtube.js",
+			"settings":
+			{
+				"buffer_size": 421,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 239.0,
+		"history":
+		[
+			"pip-3.4 install flake8",
+			"pip install flake8",
+			"subprocess.check_output([\"where\", \"python\"])",
+			"subprocess.check_output([\"where\", \"python\"], creationflags=CREATION_FLAGS)",
+			"import subprocess",
+			"subprocess.check_output([\"where\", \"python\"], creationflags=CREATION_FLAGS)",
+			"clear",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/manifest.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/youtube.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/skin/popup.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/popup.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/popup.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/skin/options.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/options.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/options.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/popup.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/skin/options.css",
+		"/C/Users/Sunny Nahar/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/options.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/update.bat",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/options.html",
+		"/C/Users/Sunny Nahar/Desktop/School/CMU 2013-2014/15-213/tsh.c",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/popup.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/skin/popup.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/youtube.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/File System/012/t/00/00000000",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/File System/012/t/00/00000001",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/todo.txt",
+		"/C/Users/Sunny Nahar/VirtualBox VMs/RHEL64/RHEL64.vbox-prev",
+		"/C/Users/Sunny Nahar/.VirtualBox/VirtualBox.xml-prev",
+		"/C/Users/Sunny Nahar/VirtualBox VMs/8.1/8.1.vbox-prev",
+		"/C/Users/Sunny Nahar/.VirtualBox/VirtualBox.xml",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/CloudRaxak/rules.py",
+		"/C/Users/Sunny Nahar/Desktop/Serials.txt",
+		"/C/Users/Sunny Nahar/Desktop/OS X Mountain Lion 10.8.3 VMware Image/VMware Unlocker - Mac OS X Guest/VMware 8.x-9.x Series/README.txt",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/manifest.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/background.js",
+		"/C/Users/Sunny Nahar/Downloads/aaronportnoy-toolbag-1c42a2f/aaronportnoy-toolbag-1c42a2f/idapythonrc.py",
+		"/C/Users/Sunny Nahar/Downloads/aaronportnoy-toolbag-1c42a2f/aaronportnoy-toolbag-1c42a2f/RELEASE.txt",
+		"/C/Users/Sunny Nahar/Downloads/aaronportnoy-toolbag-1c42a2f/aaronportnoy-toolbag-1c42a2f/README.txt",
+		"/C/Users/Sunny Nahar/Downloads/aaronportnoy-toolbag-1c42a2f/aaronportnoy-toolbag-1c42a2f/README.md",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/ohlcnddhihadnalofegeookbpglgadhe/1.1_0/javascript/bg.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/hulu.js",
+		"/C/Users/Sunny Nahar/Desktop/School/CMU 2013-2014/15-213/213/cachelab-handout/#csim.c#",
+		"/C/Users/Sunny Nahar/Downloads/sysprofile.htm",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/background/background.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/content/youtube.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/libs/googleanalytics.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/manifest.json",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/inspector/inspector.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/settings/settings.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/koiaokdomkpjdgniimnkhgbilbjgpeak/6.2.8_0/_metadata/verified_contents.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Java Projects/FXConnect4/src/c4/Main.fx",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/popup.html",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/popup.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/skin/popup1.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/popup1.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Security Behavior Observatory/SVN/codebase/sensors/browsersensor/chrome/Exntension/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/popup.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/options.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/skin/popup.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/popup.html",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/skin/popup.css",
+		"/C/Users/Sunny Nahar/Downloads/5367ac4380bde19571bf9c21/deedy_resume-openfont.tex",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/ext/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/ext/popup.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/ext/common.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/ext/content.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/lib/adblockplus.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/manifest.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/firstRun.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/utils.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/block.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/include.postload.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/include.preload.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/options.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/options.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/popup.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/README.md",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/block.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/TrackFyre.crx",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/skin/popup.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/content.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/i18n.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/skin/firstRun.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/content.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/ChromeTools/README.md",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/options.js",
+		"/C/Users/Sunny Nahar/Downloads/res.cls",
+		"/C/Users/Sunny Nahar/Downloads/res.cls.txt",
+		"/C/Users/Sunny Nahar/Downloads/res9b.tex",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/manifest.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Security Behavior Observatory/SVN/codebase/sensors/browsersensor/chrome/Exntension/DOMhandler.js",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/ohlcnddhihadnalofegeookbpglgadhe/1.1_0/manifest.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/BingBot/background.html",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/firstRun.html",
+		"/C/Users/Sunny Nahar/AppData/Local/Google/Chrome/User Data/Default/Extensions/cfhdojbkjhnklbpkdaibdccddilifddb/1.8.3_0/firstRun.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/background.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/jsbn.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/sha1.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/YouTubeTracker/rsa.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/skin/firstRun.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/lib/compat.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/lib/io.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/background.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/popup.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/manifest.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/lib/adblockplus.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/lib/info.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/lib/compat.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/utils.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/notification.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/popup.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/options.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/options.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/notification.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/firstRun.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/firstRun.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/block.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/skin/firstRun.css",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/include.preload.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/include.postload.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/_locales/en_US/messages.json",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/i18n.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/blpnkaagapkjdjkenmafefdagojkjlli/1.0_0/block.html",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/iconAnimation.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/i18n.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/popupBlocker.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/webrequest.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/lib/info.js",
+		"/C/Users/Sunny Nahar/Desktop/Computer Science/Chrome Extensions/TrackFyre/lib/punycode.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"==",
+			"dup2",
+			"2px",
+			"10px",
+			"state",
+			"value",
+			"10px",
+			"0px",
+			"10px",
+			"referrersEnabled",
+			"dnt",
+			"cookies",
+			"state",
+			"-",
+			"pid",
+			"job",
+			"kill",
+			"/*\n",
+			"hei",
+			"location",
+			"radClass",
+			"res.le",
+			"find",
+			"subs",
+			"You",
+			"enabled",
+			"open",
+			"enabled",
+			"first",
+			"noti",
+			"runon",
+			"os.",
+			"path",
+			"for",
+			"farewell",
+			"console.log(response.farewell);",
+			"locals",
+			"local",
+			"hash",
+			"div",
+			"int",
+			"par",
+			"int",
+			"tf-",
+			"pop",
+			"setT",
+			"pop",
+			"Prefs.",
+			"require.scopes[\"",
+			"require",
+			"subsc",
+			"removed",
+			"abp",
+			"Anim",
+			"icon",
+			"whitel",
+			"subs",
+			"subsc",
+			"sub",
+			"subsc",
+			"subscription",
+			"fix",
+			"int(",
+			"runOnShell",
+			"()",
+			"tab",
+			"send",
+			"Mess",
+			"gre",
+			"on",
+			"mess",
+			"check",
+			"pars",
+			"colo",
+			"sqrt",
+			"estim",
+			"getS",
+			"static",
+			"search",
+			"plac",
+			"check",
+			"print",
+			"0.7",
+			"size",
+			"1001",
+			"501",
+			"f 1001",
+			"f 500",
+			"29696",
+			"SIZE_",
+			"SIZE",
+			"ALIGN",
+			"MAX",
+			"GET_ALLOC",
+			"PREV_BLKP",
+			"NEXT_BLKP",
+			"FTRP",
+			"ftrp",
+			"HDRP",
+			"GET_SIZE",
+			"GET(",
+			"PACK",
+			"num",
+			"1024",
+			"29696",
+			"checkh",
+			"free",
+			"fre",
+			"wilderness ",
+			"used",
+			"alloc",
+			"verbose",
+			"place",
+			"add_",
+			"-2",
+			"place",
+			"get",
+			"get_add",
+			"get",
+			"check",
+			"get(",
+			"get",
+			"3",
+			"heap_",
+			"PACK",
+			"PUT",
+			"2 1",
+			"impossible"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"popup",
+			"self.runOnShell",
+			"(self)",
+			"get_alloc",
+			"prev_blkp",
+			"next_blkp",
+			"ftrp",
+			"hdrp",
+			"get_size",
+			"pack",
+			"set",
+			"i+1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 877,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								314,
+								314
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "background.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "options.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "options.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "skin/options.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "popup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "popup.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "skin/popup.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1288,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "youtube.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								421
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 275.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 163.0
+	},
+	"project": "YouTubeTracker.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Sunny Nahar\\Desktop\\Computer Science\\Chrome Extensions\\ChromeTools\\ChromeTools.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 1
+	}
+}
