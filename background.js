@@ -12,20 +12,20 @@ var q = localStorage.getItem("queue");
  */
 function initSystem()
 {
-	if(curr == null)
+	if(curr === null)
 	{
 		initBst();
 	}
 
-	if(num == null)
+	if(num === null)
 	{
 		initNum();
 	}
-	if(q == null)
+	if(q === null)
 	{
 		initQueue();
 	}
-	if(dss != null)
+	if(dss !== null)
 	{
 		dss = parseInt(dss);
 	}
@@ -33,7 +33,7 @@ function initSystem()
 	{
 		localStorage.setItem("dss",SIZE);
 	}
-	if(min != null)
+	if(min !== null)
 	{
 		min = parseInt(min);
 	}
@@ -67,12 +67,12 @@ function errorHandlerInit(e)
 	default:
 		msg = 'Unknown Error';
 		break;
-	};
-	if(msg != '')
+	}
+	if(msg !== '')
 		console.log('Error: ' + msg);		
 }
 
-initSystem()
+initSystem();
 
 /*
  * Init hashtable
@@ -153,7 +153,7 @@ function errorHandler(e) {
 	default:
 		msg = 'Unknown Error';
 		break;
-	};
+	}
 
 	console.log('Error: ' + msg);
 }
@@ -230,7 +230,7 @@ function update(url,title)
 		var hcurr = curr[h];
 		for(var i = 1; i < hcurr.length; i++)
 		{
-			if(entry.localeCompare(hcurr[i][0]) == 0)
+			if(entry.localeCompare(hcurr[i][0]) === 0)
 			{
 				f = true;
 				break;
