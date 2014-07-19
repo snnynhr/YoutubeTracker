@@ -1,6 +1,5 @@
 var SIZE = 101;
 var CUTOFF = 20;
-var QUEUE_SIZE = 0;
 var curr = JSON.parse(localStorage.getItem("bst"));
 var num = localStorage.getItem("num");
 var dss = localStorage.getItem("dss");
@@ -13,34 +12,24 @@ var q = localStorage.getItem("queue");
 function initSystem()
 {
 	if(curr === null)
-	{
 		initBst();
-	}
 
 	if(num === null)
-	{
 		initNum();
-	}
+
 	if(q === null)
-	{
 		initQueue();
-	}
+
 	if(dss !== null)
-	{
 		dss = parseInt(dss);
-	}
 	else
-	{
 		localStorage.setItem("dss",SIZE);
-	}
+
 	if(min !== null)
-	{
 		min = parseInt(min);
-	}
 	else
-	{
 		localStorage.setItem("min",CUTOFF);
-	}
+
 	q = [];
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
@@ -69,7 +58,7 @@ function errorHandlerInit(e)
 		break;
 	}
 	if(msg !== '')
-		console.log('Error: ' + msg);		
+		console.log('Error: ' + msg);
 }
 
 initSystem();
@@ -87,23 +76,23 @@ function initBst()
 	localStorage.setItem("bst", JSON.stringify(curr));
 }
 
-/* 
+/*
  * Init counter
- */ 
+ */
 function initNum()
 {
 	localStorage.setItem("num", 0);
 }
 
-/* 
+/*
  * Init queue
- */ 
+ */
 function initQueue()
 {
 	localStorage.setItem("queue", JSON.stringify(["","","","",""]));
 }
 
-/* 
+/*
  * djb2 hash function
  */
 function djb2(str)
@@ -130,7 +119,7 @@ function sha(str)
 
 /*
  * fileSystem error Handler
- */ 
+ */
 function errorHandler(e) {
 	var msg = '';
 
@@ -158,7 +147,7 @@ function errorHandler(e) {
 	console.log('Error: ' + msg);
 }
 
-/* 
+/*
  * Create empty resource file
  */
 function onWriteInitFs(fs) {
@@ -190,7 +179,7 @@ function onAppendInitFs(fs) {
 	fs.root.getFile('yttrack.txt', {create: false}, function(fileEntry) {
 
 		// Create a FileWriter object for our FileEntry (log.txt).
-		fileEntry.createWriter(function(fileWriter) 
+		fileEntry.createWriter(function(fileWriter)
 				{
 			fileWriter.seek(fileWriter.length); // Start write position at EOF.
 
@@ -222,7 +211,7 @@ function update(url,title)
 	var n = url.search("www.youtube.com/watch");
 	if(n >= 0)
 	{
-		var entry = url.substring(n + 21);	
+		var entry = url.substring(n + 21);
 		var f = false;
 
 		var LENGTH = parseInt(localStorage.getItem("dss"));
@@ -269,20 +258,11 @@ function update(url,title)
 }
 
 chrome.runtime.onMessage.addListener(
-		function(request, sender, sendResponse) {
-			//console.log(sender.tab ?
-			//           "from a content script:" + sender.tab.url :
-			//            "from the extension");
-			if (request.msg == "updated")
-			{
-				initSystem();
-			}
-			else if(request.msg == "track")
-			{
-				update(sender.tab.url,sender.tab.title);
-			}
-			else
-			{
-				console.log(request.msg);
-			}
-		});
+	function(request, sender, sendResponse) {
+		if (request.msg == "updated")
+			initSystem();
+		else if(request.msg == "track")
+			update(sender.tab.url,sender.tab.title);
+		else
+			console.log(request.msg);
+	});

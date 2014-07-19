@@ -4,7 +4,6 @@ function debug(m)
 	chrome.extension.sendMessage({msg: m});
 }
 
-// Saves options to chrome.storage
 function save_options() {
 	localStorage.setItem("dss", document.getElementById('dss').value);
 	localStorage.setItem("min", document.getElementById('min').value);
@@ -52,7 +51,7 @@ function extract(fs) {
 		var tbl = [];
 		for(var i=0; i<1001; i++)
 			tbl[i] = [];
-		fileEntry.file(function(file) 
+		fileEntry.file(function(file)
 		{
 			var reader = new FileReader();
 			reader.onloadend = function(e) {
