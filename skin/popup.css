@@ -48,7 +48,7 @@ header
   font-size: 19px;
   font-weight: bold;
   top: 10px;
-  height: 12px;  
+  height: 12px;
 }
 .menu-item
 {
@@ -77,6 +77,22 @@ header
 #a,#b,#c,#d,#e
 {
   white-space: pre;
+}
+
+.icon2
+{
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  vertical-align: top;
+  background-image: url(popup.png);
+}
+
+.menu-item .icon2
+{
+  background-position: -18px -1px;
 }
 
 /* List */
