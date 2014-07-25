@@ -1,4 +1,8 @@
 var prefix = "https://www.youtube.com/watch";
+function debug(m)
+{
+    chrome.extension.sendMessage({msg: m});
+}
 function init()
 {
     document.getElementById("d1").addEventListener('click', function(e) {
@@ -60,8 +64,8 @@ function download(i)
         while(URL[j]!='&')
             j = j + 1;
         URL = URL.substring(0, j);
-        alert(URL);
-        chrome.tabs.create({active: true, pinned: true, url: "http://www.flv2mp3.com/"}, function() {});
+        debug(URL);
+        chrome.extension.sendMessage({msg: "generate", url: URL});
     }
 }
 window.addEventListener("DOMContentLoaded", init, false);

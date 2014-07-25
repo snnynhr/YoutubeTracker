@@ -263,6 +263,26 @@ chrome.runtime.onMessage.addListener(
 			initSystem();
 		else if(request.msg == "track")
 			update(sender.tab.url,sender.tab.title);
+		else if(request.msg == "generate")
+		{
+			chrome.tabs.create({active: true, pinned: false, url: "http://www.flv2mp3.com/"}, function(tab)
+            {
+                console.log("sent");
+                var tm = function()
+                {
+                	send(tab.id, request.url);
+                };
+                setTimeout(tm, 3000);
+            });
+		}
 		else
 			console.log(request.msg);
 	});
+
+function send(id, URL)
+{
+	chrome.tabs.sendMessage(id, {url: URL}, function(response) {
+			console.log(chrome.runtime.lastError);
+	    console.log(response.farewell);
+	});
+}
