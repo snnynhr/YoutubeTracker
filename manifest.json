@@ -25,6 +25,11 @@
   	"matches": ["*://www.youtube.com/*"],
   	"js": ["util/jquery.js","youtube.js"],
   	"run_at": "document_end"
+  },
+  {
+    "matches": ["*://www.flv2mp3.com/"],
+    "js": ["util/jquery.js","flv2mp3.js"],
+    "run_at": "document_end"
   }
   ],
    "background" : {

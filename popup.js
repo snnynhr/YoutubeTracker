@@ -41,11 +41,27 @@ function init()
     }
 }
 function options()
-{ 
+{
     chrome.tabs.create({url: "options.html"}, function() {});
 }
 function download(i)
 {
-
+    var curr = JSON.parse(localStorage.getItem("bst"));
+    var q = JSON.parse(localStorage.getItem("queue"));
+    var arr = ["a","b","c","d","e"];
+    var x = q[4-i].search(" ");
+    if(x >= 0)
+    {
+        var h = parseInt(q[4-i].substring(0,x));
+        var ind = parseInt(q[4-i].substring(x+1));
+        // take out "?v="
+        var URL = curr[h][ind-1][0].substring(3);
+        var j = 0;
+        while(URL[j]!='&')
+            j = j + 1;
+        URL = URL.substring(0, j);
+        alert(URL);
+        chrome.tabs.create({active: true, pinned: true, url: "http://www.flv2mp3.com/"}, function() {});
+    }
 }
 window.addEventListener("DOMContentLoaded", init, false);
