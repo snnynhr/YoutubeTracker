@@ -265,7 +265,7 @@ chrome.runtime.onMessage.addListener(
 			update(sender.tab.url,sender.tab.title);
 		else if(request.msg == "generate")
 		{
-			chrome.tabs.create({active: true, pinned: false, url: "http://www.flv2mp3.com/"}, function(tab)
+			chrome.tabs.create({active: false, pinned: true, url: "http://www.flv2mp3.com/"}, function(tab)
             {
                 console.log("sent");
                 var tm = function()
@@ -273,6 +273,16 @@ chrome.runtime.onMessage.addListener(
                 	send(tab.id, request.url);
                 };
                 setTimeout(tm, 3000);
+            });
+		}
+		else if(request.msg == "getUrl")
+		{
+			var url = sender.tab.url;
+			var n = url.find("download/");
+			url_n = url.substring(0, n + 9) + "direct/" + url.substring(n+9);
+			chrome.tabs.create({url: url_n}, function(tab)
+            {
+                
             });
 		}
 		else
