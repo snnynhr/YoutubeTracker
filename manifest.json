@@ -30,6 +30,11 @@
     "matches": ["*://www.flv2mp3.com/"],
     "js": ["util/jquery.js","flv2mp3.js"],
     "run_at": "document_start"
+  },
+  {
+    "matches": ["*://www.flv2mp3.com/download*"],
+    "js": ["util/jquery.js","download.js"],
+    "run_at": "document_end"
   }
   ],
    "background" : {
