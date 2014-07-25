@@ -1,6 +1,26 @@
 var prefix = "https://www.youtube.com/watch";
 function init()
 {
+    document.getElementById("d1").addEventListener('click', function(e) {
+        e.stopPropagation();
+        download(0);
+    });
+    document.getElementById("d2").addEventListener('click', function(e) {
+        e.stopPropagation();
+        download(1);
+    });
+    document.getElementById("d3").addEventListener('click', function(e) {
+        e.stopPropagation();
+        download(2);
+    });
+    document.getElementById("d4").addEventListener('click', function(e) {
+        e.stopPropagation();
+        download(3);
+    });
+    document.getElementById("d5").addEventListener('click', function(e) {
+        e.stopPropagation();
+        download(4);
+    });
     document.getElementById("options").addEventListener('click',options);
     var curr = JSON.parse(localStorage.getItem("bst"));
     var q = JSON.parse(localStorage.getItem("queue"));
@@ -23,5 +43,9 @@ function init()
 function options()
 { 
     chrome.tabs.create({url: "options.html"}, function() {});
+}
+function download(i)
+{
+
 }
 window.addEventListener("DOMContentLoaded", init, false);
