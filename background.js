@@ -267,7 +267,6 @@ chrome.runtime.onMessage.addListener(
 		{
 			chrome.tabs.create({active: false, pinned: true, url: "http://www.flv2mp3.com/"}, function(tab)
             {
-                console.log("sent");
                 var tm = function()
                 {
                 	send(tab.id, request.url);
@@ -278,11 +277,10 @@ chrome.runtime.onMessage.addListener(
 		else if(request.msg == "getUrl")
 		{
 			var url = sender.tab.url;
-			var n = url.find("download/");
+			var n = url.search("download/");
 			url_n = url.substring(0, n + 9) + "direct/" + url.substring(n+9);
-			chrome.tabs.create({url: url_n}, function(tab)
+			chrome.tabs.create({active: false, pinned: true, url: url_n}, function(tab)
             {
-                
             });
 		}
 		else
