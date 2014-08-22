@@ -95,6 +95,11 @@ header
   background-position: -18px -1px;
 }
 
+#d1.hide,#d2.hide,#d3.hide,#d4.hide,#d5.hide
+{
+  display: none;
+}
+
 /* List */
 ol
 {

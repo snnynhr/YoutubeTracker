@@ -141,6 +141,8 @@ function exec()
 			clear_duplicates);
 	document.getElementById('open').addEventListener('click',
 			open);
+	document.getElementById('dl').addEventListener('click',
+            download);
 	window.addEventListener('keydown',
 		function(e){
 			if(e.keyCode === 46)
@@ -184,6 +186,18 @@ function onInitFs(fs) {
 		}, errorHandler);
 
 	}, errorHandler);
+}
+function download()
+{
+    var arr = document.getElementById('history').options;
+    for(var i = 0; i<arr.length; i++)
+    {
+        var opt = arr[arr.length-1-i];
+        if(opt.selected)
+        {
+            chrome.extension.sendMessage({msg: "generate", url: opt.value});
+        }
+    }
 }
 
 function errorHandler(e) {

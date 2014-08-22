@@ -30,7 +30,7 @@ function initSystem()
 	else
 		localStorage.setItem("min",CUTOFF);
 
-	q = [];
+	initQueue();
 	/* Check if file exists */
 	window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onAppendInitFs, errorHandlerInit);
 }
@@ -89,7 +89,7 @@ function initNum()
  */
 function initQueue()
 {
-	localStorage.setItem("queue", JSON.stringify(["","","","",""]));
+	localStorage.setItem("queue", JSON.stringify([undefined,undefined,undefined,undefined,undefined]));
 }
 
 /*
@@ -265,6 +265,7 @@ chrome.runtime.onMessage.addListener(
 			update(sender.tab.url,sender.tab.title);
 		else if(request.msg == "generate")
 		{
+			console.log("generate called");
 			chrome.tabs.create({active: false, pinned: true, url: "http://www.flv2mp3.com/"}, function(tab)
             {
                 var tm = function()
