@@ -1,5 +1,8 @@
+console.log("Initiated download.js");
 function init()
 {
+	console.log("Sending");
 	chrome.extension.sendMessage({msg: "getUrl"});
 }
-window.addEventListener("DOMContentLoaded", init, false);
+init();
+//window.addEventListener("DOMContentLoaded", init, false);
