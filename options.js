@@ -195,7 +195,7 @@ function download()
         var opt = arr[arr.length-1-i];
         if(opt.selected)
         {
-            chrome.extension.sendMessage({msg: "generate", url: opt.value});
+            chrome.extension.sendMessage({msg: "generate", url: opt.value.substring(3)});
         }
     }
 }
