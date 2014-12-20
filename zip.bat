@@ -1,2 +1,2 @@
 DEL VideoTracker.zip
-"C:\Program Files\7-Zip\7z.exe" a VideoTracker.zip icons/ skin/ util/ background.html background.js download.js flv2mp3.js jsbn.js manifest.json options.html options.js popup.html popup.js rsa.js sha1.js todo.txt update.bat youtube.js VideoTracker.crx zip.bat
+"C:\Program Files\7-Zip\7z.exe" a "../VideoTracker.zip" icons/ skin/ util/ js/ background.html manifest.json options.html popup.html VideoTracker.crx
