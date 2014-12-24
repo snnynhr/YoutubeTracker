@@ -23,17 +23,17 @@
   "content_scripts" : [
   {
   	"matches": ["*://www.youtube.com/*"],
-  	"js": ["util/jquery.min.js","js/youtube.min.js"],
+  	"js": ["util/jquery.min.js","js/youtube.js"],
   	"run_at": "document_end"
   },
   {
     "matches": ["*://www.flv2mp3.com/"],
-    "js": ["util/jquery.min.js","js/flv2mp3.min.js"],
+    "js": ["util/jquery.min.js","js/flv2mp3.js"],
     "run_at": "document_start"
   },
   {
     "matches": ["*://www.flv2mp3.com/download/*"],
-    "js": ["util/jquery.min.js","js/download.min.js"],
+    "js": ["util/jquery.min.js","js/download.js"],
     "run_at": "document_end"
   }
   ],
