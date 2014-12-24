@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="skin/options.css">
+	<title>VideoTracker Options</title>
+	<script src="js/options.js"></script>
+</head>
+
+<body>
+	<header>
+	<div>
+	<img id = "logo" src="icon/icon128v.png" alt="some_text" align="middle">
+		<b id = "text">Options</b>
+	</div>
+	</header>
+	<div id = "elem">
+		<span id = "title">Storage Options:</span>
+		<br><br>
+		<div id = "wrapper">
+			<div>
+				Data Storage Size (#):
+			</div>
+			<input type="number" id="dss" >
+			<div>
+				Minimum Entries till write:
+			</div>
+			<input type="number" id="min" >
+			<div id="status"></div>
+			<br>
+			<button id="save" class ="button">Save</button>
+			<br><br>
+		</div>
+	</div>
+	<div id = "elem">
+		<span id = "title">Clear Duplicates:</span>
+		<br><br>
+		<div id="wrapper">
+			<button id="clr" class="button">Clear</button>
+		</div>
+		<br>
+	</div>
+	<div id = "elem">
+		<span id = "title">Stored History:</span>
+		<br><br>
+		<div id = "wrapper">
+			<select id ="history" multiple size="20"></select>
+			<br><br>
+			<button id="open" class = "button">Open</button>
+			<button id="del" class = "button">Delete</button>
+			<button id="dl" class = "button">Download</button>
+		</div>
+	</div>
+</body>
+</html>
